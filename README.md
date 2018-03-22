@@ -10,13 +10,13 @@ Stand up an instance of [latest Elafros build](https://github.com/elafros/elafro
 
 > For this demo we assume `thingz.io` is your root domain
 
-#### Deploy app (v1 aka blue)
+### Deploy app (v1 aka blue)
 
 `kubectl apply -f deployments/stage1.yaml`
 
 Navigate to http://route-demo.default.thingz.io to show deployed app
 
-#### Deploy new version of the app (v2 aka green):
+### Deploy new version of the app (v2 aka green):
 
 `kubectl apply -f deployments/stage2.yaml`
 
@@ -26,13 +26,13 @@ This will stage v2 (green) version by:
 
 Navigate to http://v2.route-demo.default.thingz.io to show v2 version of the app 
 
-#### Migrate portion of v1 (blew) traffic to v2 (green)
+### Migrate portion of v1 (blew) traffic to v2 (green)
 
 `kubectl apply -f deployments/stage3.yaml`
 
 Refresh http://route-demo.default.thingz.io few times to show part of traffic going to v2 now
 
-#### Send 100% of traffic to v2 (green)
+### Send 100% of traffic to v2 (green)
 
 `kubectl apply -f deployments/stage4.yaml`
 
