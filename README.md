@@ -1,4 +1,4 @@
-# elafros-route-demo [![Build Status](https://travis-ci.org/mchmarny/elafros-route-demo.svg?branch=master)](https://travis-ci.org/mchmarny/elafros-route-demo)
+# elafros-route-demo
 
 Simple Elafros routing demo... mimicking common blue/green deployment pattern 
 
