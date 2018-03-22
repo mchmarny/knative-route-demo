@@ -24,6 +24,7 @@ spec:
     spec:
       container:
         image: gcr.io/elafros-samples/elafros-route-demo:green
+        imagePullPolicy: Always
         env:
           - name: T_VERSION
             value: "green"
