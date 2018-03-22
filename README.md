@@ -64,3 +64,12 @@ kubectl get ing
 ```
 
 Then capture that IP using below command and configure an `A` entry with `*` in your DNS server to point your that IP
+
+## Cleanup
+
+```
+kubectl delete -f deployments/stage1.yaml --ignore-not-found=true
+kubectl delete -f deployments/stage2.yaml --ignore-not-found=true
+kubectl delete -f deployments/stage3.yaml --ignore-not-found=true
+kubectl delete -f deployments/stage4.yaml --ignore-not-found=true
+```
