@@ -1,20 +1,28 @@
 body {
-  background: #f06d06;
-  font-size: 80%;
-  padding: 20px;
+  background: #d3d2d2;
+  padding: 0;
+  margin: 0;
 }
 
 div {
-  background: black;
-  color: white;
-  width: 50%;
+  width: 90%;
   transform: translate(-50%, -50%);
   position: absolute;
   top: 50%;
   left: 50%;
+  margin: 0;
   padding: 20px;
   resize: none;
-  overflow: auto;
+  overflow: none;
   text-align: center;
-  font: 3em sans-serif;
+  color: white;
+  font: 10em sans-serif;
+}
+
+div.blue {
+  background: blue;
+}
+
+div.green {
+  background: green;
 }
