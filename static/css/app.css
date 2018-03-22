@@ -1,0 +1,20 @@
+body {
+  background: #f06d06;
+  font-size: 80%;
+  padding: 20px;
+}
+
+div {
+  background: black;
+  color: white;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  resize: none;
+  overflow: auto;
+  text-align: center;
+  font: 3em sans-serif;
+}

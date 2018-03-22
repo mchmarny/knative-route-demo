@@ -1,0 +1,26 @@
+apiVersion: elafros.dev/v1alpha1
+kind: Route
+metadata:
+  name: route-demo
+  namespace: default
+spec:
+  traffic:
+  - configurationName: route-demo-config
+    percent: 100
+---
+apiVersion: elafros.dev/v1alpha1
+kind: Configuration
+metadata:
+  name: route-demo-config
+  namespace: default
+spec:
+  revisionTemplate:
+    metadata:
+      labels:
+        elafros.dev/type: container
+    spec:
+      container:
+        image: gcr.io/elafros-samples/elafros-route-demo:latest
+        env:
+          - name: T_VERSION
+            value: "v1"

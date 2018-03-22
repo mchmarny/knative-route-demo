@@ -1,0 +1,16 @@
+---
+  language: go
+  sudo: false
+  notifications:
+    email: true
+  go:
+    - 1.9
+    - tip
+  install:
+    - go get -u github.com/golang/lint/golint
+    - go get -u github.com/tools/godep
+    - godep restore
+  script:
+    - go test -v --short ./...
+    - go build -v
+    - go vet $(go list ./... | grep -v vendor)
