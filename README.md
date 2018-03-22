@@ -8,7 +8,7 @@ Stand up an instance of [latest Elafros build](https://github.com/elafros/elafro
 
 ## Demo
 
-> Assuming `thingz.io` root domain
+> For this demo we assume `thingz.io` is your root domain
 
 #### Deploy app (v1 aka blue)
 
