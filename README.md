@@ -4,7 +4,7 @@ Simple Elafros routing demo... mimicking common blue/green deployment pattern
 
 ## Setup 
 
-Stand up an instance of [latest Elafros build](https://github.com/elafros/elafros/blob/master/README.md)
+Stand up an instance of latest [Elafros build](https://github.com/elafros/elafros/blob/master/README.md)
 
 ## Demo
 
