@@ -1,53 +1,59 @@
 # elafros-route-demo
 
-Simple Elafros routing demo... mimicking common blue/green deployment pattern 
+This your map to Elafros routs. Simple blue/green-like deployment pattern demo using the name routes. 
 
 ## Setup 
 
-Stand up an instance of latest [Elafros build](https://github.com/elafros/elafros/blob/master/README.md)
+Stand up an instance of Elafros using latest [build](https://github.com/elafros/elafros/blob/master/README.md)
 
 ## Demo
 
-> For this demo we assume `thingz.io` domain suffix. Edit [elaconfig.yaml](https://github.com/elafros/elafros/blob/master/elaconfig.yaml) to change it. 
+> For this demo I'm gonna use `thingz.io` domain defined in [Google Domains](https://domains.google/#/). Edit data.domainSuffix element in [elaconfig.yaml](https://github.com/elafros/elafros/blob/master/elaconfig.yaml) to use a different domain. 
 
-### Deploy app (v1 aka blue)
+### Deploy app (blue)
 
 `kubectl apply -f deployments/stage1.yaml`
 
-Navigate to http://route-demo.default.thingz.io to show deployed app
+Check for external IP being assigned in k8s ingress service
 
-### Deploy new version of the app (v2 aka green):
+`kubectl get ing`
+
+When route created and IP assigned, navigate to http://route-demo.default.thingz.io to show deployed app. Let's call this blue (aka v1) version of the app. 
+
+### Deploy new (green) version of the app
 
 `kubectl apply -f deployments/stage2.yaml`
 
-This will stage v2 (green) version only. That means:
+This will only stage v2. That means:
 
-* Not routing any of v1 traffic to that version, and
-* Create named route (`v2`) for testing of new the newlly deployed version
+* Won't route any of v1 (blue) traffic to that new (green) version, and
+* Create new named route (`v2`) for testing of new the newlly deployed version
 
-Navigate to the original app URL (http://route-demo.default.thingz.io) to show our v2 takes no traffic, 
-and navigate to http://v2.route-demo.default.thingz.io to show the named route to v2 version of the app 
+Refresh v1 (http://route-demo.default.thingz.io) to show our v2 takes no traffic, 
+and navigate to http://v2.route-demo.default.thingz.io to show the new `v2` named route.
 
 ### Migrate portion of v1 (blew) traffic to v2 (green)
 
 `kubectl apply -f deployments/stage3.yaml`
 
-Navigate to http://route-demo.default.thingz.io and refresh a few times to show part of traffic going to v2
+Refersh (a few times) the original route http://route-demo.default.thingz.io to show part of traffic going to v2
 
-### Send 100% of traffic to v2 (green)
+> Note, demo uses 50/50 split to assure you don't have to refresh too much, normally you would start with 1-2% maybe
+
+### Re-route 100% of traffic to v2 (green)
 
 `kubectl apply -f deployments/stage4.yaml`
 
-This will complete the deployment by sending all traffic to new version.
+This will complete the deployment by sending all traffic to the new (green) version.
 
-Refresh http://route-demo.default.thingz.io few more times to show that all traffic goes to v2.
+Refresh original route http://route-demo.default.thingz.io bunch of times to show that all traffic goes to v2 (green) and v1 (blue) no longer takes traffic.
 
-Optionally, we can also show that:
+Optionally, I like to pointing out that:
 
-* We keep v1 (blue) entry with 0% traffic for speed of reverting, if ever necessary
-* We added named route to allow access to the old (blue) version of the app 
+* I kept v1 (blue) entry with 0% traffic for speed of reverting, if ever necessary
+* I added named route `v1` to the old (blue) version of the app to allow access for comp reasons 
 
-Navigate to http://v1.route-demo.default.thingz.io to show the old version still being available by named route. 
+Navigate to http://v1.route-demo.default.thingz.io to show the old version accessable by `v1` named route
 
 
 ## Rebuilding Images 
