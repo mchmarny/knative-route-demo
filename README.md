@@ -1,6 +1,6 @@
 # elafros-route-demo
 
-This your map to Elafros routs. Simple blue/green-like deployment pattern demo using the name routes. 
+Your map to Elafros routs. Simple blue/green-like app deployment pattern demo using routes. 
 
 ## Setup 
 
