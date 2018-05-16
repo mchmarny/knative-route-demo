@@ -8,7 +8,7 @@ Stand up an instance of Elafros using latest [build](https://github.com/elafros/
 
 ## Demo
 
-> For this demo I'm gonna use `thingz.io` domain defined in [Google Domains](https://domains.google/#/). Edit data.domainSuffix element in [elaconfig.yaml](https://github.com/elafros/elafros/blob/master/elaconfig.yaml) to use a different domain. 
+> For this demo I'm gonna use `thingz.io` domain defined in [Google Domains](https://domains.google/#/). Edit data.domainSuffix element in [elaconfig.yaml](https://github.com/elafros/elafros/blob/master/config/elaconfig.yaml) to use a different domain. 
 
 ### Deploy app (blue)
 
