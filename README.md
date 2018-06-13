@@ -8,7 +8,7 @@ Stand up an instance of Knative using latest [build](https://github.com/knative/
 
 ## Demo
 
-Once the Knative cluster has been successfully deployed we can move on to the actual demo. The demo will be done entirelly using pre-build images so there is no need to deal with dependancies or go builds unless you want to (see [Rebuilding Images]() section below)
+Once the Knative cluster has been successfully deployed we can move on to the actual demo. The demo will be done entirely using pre-build images so there is no need to deal with dependencies or go builds unless you want to (see [Rebuilding Images]() section below)
 
 > Note, for this demo I'm gonna use `thingz.io` domain which I defined in [Google Domains](https://domains.google/#/). To use another domain edit domain ConfigMap in [econfig-domain.yaml](https://github.com/knative/serving/blob/master/config/config-domain.yaml) and `kubectl replace -f updated-file.yaml` to use a different domain. 
 
@@ -38,7 +38,7 @@ and navigate to http://v2.route-demo.default.thingz.io to show the new `v2` name
 
 `kubectl apply -f deployments/stage3.yaml`
 
-Refersh (a few times) the original route http://route-demo.default.thingz.io to show part of traffic going to v2
+Refresh (a few times) the original route http://route-demo.default.thingz.io to show part of traffic going to v2
 
 > Note, demo uses 50/50 split to assure you don't have to refresh too much, normally you would start with 1-2% maybe
 
@@ -55,7 +55,7 @@ Optionally, I like to pointing out that:
 * I kept v1 (blue) entry with 0% traffic for speed of reverting, if ever necessary
 * I added named route `v1` to the old (blue) version of the app to allow access for comp reasons 
 
-Navigate to http://v1.route-demo.default.thingz.io to show the old version accessable by `v1` named route
+Navigate to http://v1.route-demo.default.thingz.io to show the old version accessible by `v1` named route
 
 
 ## Rebuilding Images
