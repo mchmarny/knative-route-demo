@@ -1,13 +1,13 @@
 
 # Go parameters
-BINARY_NAME=elafros-route-demo
-GCP_PROJECT_NAME=elafros-samples
+BINARY_NAME=knative-route-demo
+GCP_PROJECT_NAME=knative-samples
 
 all: test
 
 deps:
-	go get github.com/tools/godep
-	godep restore
+	go get -u github.com/golang/dep/cmd/dep
+	dep ensure
 
 build:
 	go build -v -o ./bin/$(BINARY_NAME)

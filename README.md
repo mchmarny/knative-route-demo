@@ -1,14 +1,16 @@
-# elafros-route-demo
+# knative-route-demo
 
-Your map to Elafros routs. Simple blue/green-like app deployment pattern demo using routes. 
+Your map to Knative routs. Simple blue/green-like app deployment pattern demo using Knative routes. 
 
 ## Setup 
 
-Stand up an instance of Elafros using latest [build](https://github.com/elafros/elafros/blob/master/README.md)
+Stand up an instance of Knative using latest [build](https://github.com/knative/install/blob/master/README.md)
 
 ## Demo
 
-> For this demo I'm gonna use `thingz.io` domain defined in [Google Domains](https://domains.google/#/). Edit data.domainSuffix element in [elaconfig.yaml](https://github.com/elafros/elafros/blob/master/config/elaconfig.yaml) to use a different domain. 
+Once the Knative cluster has been successfully deployed we can move on to the actual demo. The demo will be done entirelly using pre-build images so there is no need to deal with dependancies or go builds unless you want to (see [Rebuilding Images]() section below)
+
+> Note, for this demo I'm gonna use `thingz.io` domain which I defined in [Google Domains](https://domains.google/#/). To use another domain edit domain ConfigMap in [econfig-domain.yaml](https://github.com/knative/serving/blob/master/config/config-domain.yaml) and `kubectl replace -f updated-file.yaml` to use a different domain. 
 
 ### Deploy app (blue)
 
@@ -56,14 +58,14 @@ Optionally, I like to pointing out that:
 Navigate to http://v1.route-demo.default.thingz.io to show the old version accessable by `v1` named route
 
 
-## Rebuilding Images 
+## Rebuilding Images
 
-Install app on the Elafros service first you have to create an image of the app. You can build the image using GCP image build service by executing `make push` command. If successful, the `IMAGES` column from the results will include the URI of your image. If you need to update the image change `containerSpec` portion of the `stage1.yaml` and `stage2.yaml` manifest to your new image URI.
+Install app on the Knative service first you have to create an image of the app. You can build the image using GCP image build service by executing `make push` command. If successful, the `IMAGES` column from the results will include the URI of your image. If you need to update the image change `containerSpec` portion of the `stage1.yaml` and `stage2.yaml` manifest to your new image URI.
 
 ```
 serviceType: container
       containerSpec:
-        image: gcr.io/elafros-samples/elafros-route-demo:blue
+        image: gcr.io/knative-samples/knative-route-demo:blue
 ```
 
 ## Configuring DNS

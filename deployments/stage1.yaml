@@ -1,4 +1,4 @@
-apiVersion: elafros.dev/v1alpha1
+apiVersion: serving.knative.dev/v1alpha1
 kind: Route
 metadata:
   name: route-demo
@@ -8,7 +8,7 @@ spec:
   - configurationName: route-demo-config-v1
     percent: 100
 ---
-apiVersion: elafros.dev/v1alpha1
+apiVersion: serving.knative.dev/v1alpha1
 kind: Configuration
 metadata:
   name: route-demo-config-v1
@@ -17,10 +17,10 @@ spec:
   revisionTemplate:
     metadata:
       labels:
-        elafros.dev/type: container
+        knative.dev/type: container
     spec:
       container:
-        image: gcr.io/elafros-samples/elafros-route-demo:blue
+        image: gcr.io/knative-samples/knative-route-demo:blue
         imagePullPolicy: Always
         env:
           - name: T_VERSION

@@ -9,4 +9,4 @@ vendor
 
 # bin
 bin/
-elafros-route-demo
+knative-route-demo

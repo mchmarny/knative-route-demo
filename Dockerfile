@@ -1,22 +1,22 @@
-FROM golang:1.9.2 as builder
+FROM golang:1.10.1 as builder
 
-WORKDIR /go/src/github.com/mchmarny/elafros-route-demo/
+WORKDIR /go/src/github.com/mchmarny/knative-route-demo/
 COPY . .
 
 # restore to pinnned versions of dependancies 
-RUN go get -u github.com/tools/godep
-RUN godep restore
+RUN go get -u github.com/golang/dep/cmd/dep
+RUN dep ensure
 
 # build
-RUN CGO_ENABLED=0 GOOS=linux go build -a -o elafros-route-demo \
+RUN CGO_ENABLED=0 GOOS=linux go build -a -o knative-route-demo \
     -tags netgo -installsuffix netgo .
 
 # build the clean image
 FROM scratch as runner
 # copy the app
-COPY --from=builder /go/src/github.com/mchmarny/elafros-route-demo/elafros-route-demo .
+COPY --from=builder /go/src/github.com/mchmarny/knative-route-demo/knative-route-demo .
 # copy static artifacts 
-COPY --from=builder /go/src/github.com/mchmarny/elafros-route-demo/static /static
-COPY --from=builder /go/src/github.com/mchmarny/elafros-route-demo/templates /templates
+COPY --from=builder /go/src/github.com/mchmarny/knative-route-demo/static /static
+COPY --from=builder /go/src/github.com/mchmarny/knative-route-demo/templates /templates
 
-ENTRYPOINT ["/elafros-route-demo"]
+ENTRYPOINT ["/knative-route-demo"]

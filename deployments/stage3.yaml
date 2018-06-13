@@ -1,4 +1,4 @@
-apiVersion: elafros.dev/v1alpha1
+apiVersion: serving.knative.dev/v1alpha1
 kind: Route
 metadata:
   name: route-demo
