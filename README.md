@@ -1,6 +1,6 @@
 # knative-route-demo
 
-Your map to Knative routs. Simple blue/green-like app deployment pattern demo using Knative routes. 
+Your map to help you navigate the Knative routes. Simple blue/green-like app deployment pattern demo.
 
 ## Setup 
 
