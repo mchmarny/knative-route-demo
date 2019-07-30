@@ -1,0 +1,14 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: blue-green-demo
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/chhsiao/knative-route-demo
+  traffic:
+    - percent: 100
+    - revisionName: blue-green-demo-v1
+      percent: 0
