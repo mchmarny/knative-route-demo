@@ -11,12 +11,11 @@ import (
 
 const (
 	defaultServerPort = 8080
-	newVersionCode    = "green"
 )
 
 var (
 	logger  = log.New(os.Stdout, "[ttv] ", log.Lshortfile|log.Ldate|log.Ltime)
-	version = os.Getenv("T_VERSION")
+	version = "blue"
 )
 
 func main() {
