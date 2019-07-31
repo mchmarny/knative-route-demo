@@ -15,7 +15,7 @@ const (
 
 var (
 	logger  = log.New(os.Stdout, "[ttv] ", log.Lshortfile|log.Ldate|log.Ltime)
-	version = "blue"
+	version = "green"
 )
 
 func main() {
