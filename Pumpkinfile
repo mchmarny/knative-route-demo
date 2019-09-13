@@ -25,12 +25,6 @@ task "source-to-image": {
         "--destination=\(resource["knative-demo-image"].param.url)",
         "--context=/workspace/knative-demo-git",
         "--oci-layout-path=/builder/home/image-outputs/knative-demo-image"
-      ],
-      env: [
-        {
-          name: "DOCKER_CONFIG",
-          value: "/builder/home/.docker"
-        }
       ]
     }
   ]
@@ -56,6 +50,6 @@ actions: [
   },
   {
     tasks: ["run-test-binary"]
-    on pull_request comment: "^/run-test$"
+    on pull_request branch: ["master"]
   }
 ]
