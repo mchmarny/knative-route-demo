@@ -50,7 +50,7 @@ actions: [
   },
   {
     tasks: ["run-test-binary"]
-    on pull_request branches: ["master"]
-    on pull_request comment: "^/run-test$"
+    on pull_request_comment branches: ["master"]
+    on pull_request_comment pattern: "^/run-test$"
   }
 ]
