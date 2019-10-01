@@ -17,7 +17,7 @@ const (
 
 var (
 	logger  = log.New(os.Stdout, "[ttv] ", log.Lshortfile|log.Ldate|log.Ltime)
-	version = v2VersionCode
+	version = v1VersionCode
 )
 
 func main() {
