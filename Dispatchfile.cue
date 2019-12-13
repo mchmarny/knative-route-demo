@@ -47,10 +47,5 @@ actions: [
   {
     tasks: ["run-test-binary"]
     on push branches: ["master"]
-  },
-  {
-    tasks: ["run-test-binary"]
-    on pull_request_comment branches: ["master"]
-    on pull_request_comment pattern: "^/run-test$"
   }
 ]
