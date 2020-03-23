@@ -5,11 +5,10 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css" />
 </head>
 <body>
-        {{ if eq .version "green" }} 
-            <div class="green">App v2</div>
-        {{else}}
-            <div class="blue">App v1</div>
-        {{end}}
-    </div>
+    {{ if eq .version "green" }}
+        <div class="green">App v2</div>
+    {{else}}
+        <div class="blue">App v1</div>
+    {{end}}
 </body>
 </html>
